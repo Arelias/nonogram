@@ -1,11 +1,11 @@
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import java.util.Scanner;
 
 public class Main extends Application {
 
@@ -18,9 +18,17 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle("Hello World");
         GridPane test = new GridPane();
-        Scene scene = new Scene(test, WINDOW_WIDTH, WINDOW_HEIGHT, Color.BLACK);
+        Board board = FileController.loadLevel();
+
+        GridPane testBoard = board.drawGrid();
+        test.add(testBoard,0,0);
+
+
+
+        Scene scene = new Scene(test, WINDOW_WIDTH, WINDOW_HEIGHT, Color.GRAY);
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
 
 

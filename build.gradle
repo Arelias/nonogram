@@ -14,3 +14,9 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+//This is IMPORTANT for a jar file to properly execute, if Main class moves to eg. com.game.something.Main then use that
+jar {
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
+}
